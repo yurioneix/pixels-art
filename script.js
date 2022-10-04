@@ -31,6 +31,11 @@ for (let index = 1; index < divsColor.length; index += 1) {
     divsColor[index].style.backgroundColor = createRandomRGB();
 }
 
+// Cria botão
+let createButton = document.createElement('button');
+createButton.id = 'button-random-color';
+createButton.innerText = 'Cores Aleatórias';
+body.appendChild(createButton);
 
 
 
