@@ -37,6 +37,13 @@ createButton.id = 'button-random-color';
 createButton.innerText = 'Cores aleatórias';
 body.appendChild(createButton);
 
+//Cria evento para o botão que ao clicar muda as cores a partir da 2ª div
+const buttonRandomColor = document.querySelector('#button-random-color');
+buttonRandomColor.addEventListener('click', function () {
+    for (let index = 1; index < divsColor.length; index += 1) {
+        divsColor[index].style.backgroundColor = createRandomRGB();
+    }
+})
 
 
 // Funções 
