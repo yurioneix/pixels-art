@@ -24,7 +24,7 @@ for (let index = 0; index < 4; index += 1) {
 
 //Define a primeira div de classe color como preta
 const divsColor = document.getElementsByClassName('color');
-divsColor[0].style.backgroundColor = 'black';
+divsColor[0].style.backgroundColor = 'rgb(0, 0, 0)';
 
 //Laço for que insere cor aleatório nas divs de classe color a partir do 2º item
 for (let index = 1; index < divsColor.length; index += 1) {
@@ -34,7 +34,7 @@ for (let index = 1; index < divsColor.length; index += 1) {
 // Cria botão
 let createButton = document.createElement('button');
 createButton.id = 'button-random-color';
-createButton.innerText = 'Cores Aleatórias';
+createButton.innerText = 'Cores aleatórias';
 body.appendChild(createButton);
 
 
