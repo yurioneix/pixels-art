@@ -9,10 +9,10 @@ function createH1 () {
 
 //Criação da section de id = 'color-palette'
 function createSectionColorPalette () {
-    const body = document.getElementsByTagName('body')[0];
-    let createSectionColorPalette = document.createElement('section');
-    createSectionColorPalette.id = 'color-palette';
-    body.appendChild(createSectionColorPalette);
+        const body = document.getElementsByTagName('body')[0];
+        let createSectionColorPalette = document.createElement('section');
+        createSectionColorPalette.id = 'color-palette';
+        body.appendChild(createSectionColorPalette);
 }
 
 //Laço for que cria 4 divs de classe e borda definidas, filhas da section color-palette 
@@ -71,20 +71,16 @@ function createRandomRGB () {
 
 //Função que armazena paleta de cores no Local Storage da página 
 function colorPaletteLocalStorage() {
-    let arrayOfBackgroundColor = [];
-    const section = document.querySelectorAll('#color-palette');
-    
-    for (let index = 0; index < section.length; index += 1) {
-        arrayOfBackgroundColor[index] = section[index].innerHTML;
-    }
-    localStorage.setItem('colorPalette', arrayOfBackgroundColor);
+    const section = document.querySelector('#color-palette');
+    const savedSectionColor = section.innerHTML;
+    localStorage.setItem('colorPalette', savedSectionColor);
 }
 
 //Função que pega a paleta no localStorage 
-function getLocalStorage () {
+function getLocalStorage () {   
+    const body = document.getElementsByTagName('body')[0];
     const initialColor = localStorage.getItem('colorPalette');
-    const sectionColorPalette = document.querySelector('#color-palette');
-    sectionColorPalette.innerHTML = initialColor;
+    body.appendChild(initialColor);
 }
 
 window.onload = function () {
@@ -95,6 +91,4 @@ window.onload = function () {
     createDivsColored();
     createButton();
     createButtonRandomColor();
-    colorPaletteLocalStorage();
-    getLocalStorage();
 }
