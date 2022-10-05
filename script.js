@@ -46,6 +46,24 @@ buttonRandomColor.addEventListener('click', function () {
 })
 
 
+//Função que armazena paleta de cores no Local Storage da página 
+function colorPaletteLocalStorage() {
+    let arrayOfBackgroundColor = [];
+    
+    for (let index = 0; index < divsColor.length; index += 1) {
+        arrayOfBackgroundColor[index] = divsColor[index].getAttribute('style');   
+    }
+    console.log(typeof(arrayOfBackgroundColor));
+    console.log(arrayOfBackgroundColor);
+
+    localStorage.setItem('colorPalette', JSON.stringify(arrayOfBackgroundColor));
+    
+    return arrayOfBackgroundColor;
+}
+
+colorPaletteLocalStorage();
+
+
 // Funções 
 function createRandomRGB () {
     let r = Math.floor(Math.random() * 255);
