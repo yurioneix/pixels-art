@@ -65,7 +65,6 @@ function create25Pixels () {
         pixels.style.backgroundColor = 'white';
         pixels.style.display = 'inline-block'
         sectionFrame.appendChild(pixels);
-        console.log(index);
     }
 }
 
@@ -78,7 +77,6 @@ function createButtonRandomColor () {
             divsColor[index].style.backgroundColor = createRandomRGB();
         }
         colorPaletteLocalStorage();
-        getLocalStorage();
     })
 }
 
@@ -94,14 +92,22 @@ function createRandomRGB () {
 function colorPaletteLocalStorage() {
     const section = document.querySelector('#color-palette');
     const savedSectionColor = section.innerHTML;
-    localStorage.setItem('colorPalette', savedSectionColor);
+    localStorage.setItem('colorPalette', JSON.stringify(savedSectionColor));
 }
 
 //Função que pega a paleta no localStorage 
 function getLocalStorage () {   
+    const section = document.querySelector('#color-palette');
     const body = document.getElementsByTagName('body')[0];
-    const initialColor = localStorage.getItem('colorPalette');
-    body.appendChild(initialColor);
+    const initialColor = JSON.parse(localStorage.getItem('colorPalette'));
+    console.log(initialColor);
+    
+    //Se não houver nada no local storage encerra função, se houver adiciona na section
+    if (!initialColor) {
+        return;
+    } else {
+        section.innerHTML = initialColor;
+    }
 }
 
 window.onload = function () {
@@ -114,4 +120,5 @@ window.onload = function () {
     createButtonRandomColor();
     createFrame();
     create25Pixels();
+    getLocalStorage();
 }
