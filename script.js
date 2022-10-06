@@ -31,6 +31,7 @@ function createDivsColored () {
     //Define a primeira div de classe color como preta
     const divsColor = document.getElementsByClassName('color');
     divsColor[0].style.backgroundColor = 'rgb(0, 0, 0)';
+    divsColor[0].className = 'color selected';
     
     //Laço for que insere cor aleatório nas divs de classe color a partir do 2º item
     for (let index = 1; index < divsColor.length; index += 1) {
