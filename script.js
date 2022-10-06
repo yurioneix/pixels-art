@@ -47,6 +47,26 @@ function createButton () {
     body.appendChild(createButton);
 }
 
+//Função que cria quadro de 25pixels
+
+function createFrame () {
+    const body = document.getElementsByTagName('body')[0];
+    const SectionFrame = document.createElement('section');
+    SectionFrame.id = 'pixel-board';
+    body.appendChild(SectionFrame);
+}
+
+function create25Pixels () {
+    for (let index = 0; index < 25; index += 1) {
+        const sectionFrame = document.querySelector('#pixel-board');
+        const pixels = document.createElement('div');
+        pixels.className = 'pixel';
+        pixels.style.backgroundColor = 'white';
+        pixels.style.display = 'inline-block'
+        sectionFrame.appendChild(pixels);
+        console.log(index);
+    }
+}
 
 //Cria evento para o botão que ao clicar muda as cores a partir da 2ª div
 function createButtonRandomColor () {
@@ -91,4 +111,6 @@ window.onload = function () {
     createDivsColored();
     createButton();
     createButtonRandomColor();
+    createFrame();
+    create25Pixels();
 }

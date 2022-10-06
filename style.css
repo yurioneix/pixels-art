@@ -20,7 +20,19 @@ div.color {
 }
 
 #button-random-color {
-    position: relative;
+    position: sticky;
     left: 45%;
-    top: 10px;
+    margin: 10px;
+}
+
+#pixel-board {
+    max-width: 19%;
+    margin: auto;
+}
+
+.pixel {
+    margin: 2px;
+    width: 40px;
+    height: 40px;
+    border: 1px solid black;
 }
