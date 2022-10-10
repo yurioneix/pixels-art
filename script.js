@@ -100,7 +100,6 @@ function getLocalStorage () {
     const section = document.querySelector('#color-palette');
     const body = document.getElementsByTagName('body')[0];
     const initialColor = JSON.parse(localStorage.getItem('colorPalette'));
-    console.log(initialColor);
     
     //Se não houver nada no local storage encerra função, se houver adiciona na section
     if (!initialColor) {
@@ -108,6 +107,25 @@ function getLocalStorage () {
     } else {
         section.innerHTML = initialColor;
     }
+}
+
+//Função que adiciona classe select a paleta quando é clicada
+function addSelectClass() {
+    const divsColor = document.querySelectorAll('.color');
+    
+    for (let index = 0; index < divsColor.length; index += 1) {
+      if (divsColor[index].classList.contains('selected')) {
+        divsColor[index].classList.remove('selected');
+      } else {
+        divsColor[index].classList.add('selected');
+      }
+      console.log(divsColor[index].classList)
+    }
+}
+
+//Função que cria evento de captura da cor da paleta ao clicar
+function clickPalette() {
+    addEventListener('click', addSelectClass);
 }
 
 window.onload = function () {
@@ -121,4 +139,5 @@ window.onload = function () {
     createFrame();
     create25Pixels();
     getLocalStorage();
+    clickPalette();
 }
