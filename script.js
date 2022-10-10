@@ -127,14 +127,29 @@ function clickPalette() {
     
     for(let index = 0; index < divsColor.length; index += 1) {
         divsColor[index].addEventListener('click', addSelectClass);
-        divsColor[index].addEventListener('click', function getColorPalette () {
-            let selectedColor = divsColor[index].style.backgroundColor;
-            console.log(selectedColor);
+    }
+}
+
+//Função que captura cor da paleta e pinta os pixels
+function getColorPalette () {
+    const divsColor = document.querySelectorAll('.color');
+    const pixels = document.querySelectorAll('.pixel');
+    let selectedColor;
+    
+    for (let index = 0; index < divsColor.length; index += 1) {
+        divsColor[index].addEventListener('click', function () {
+        selectedColor = divsColor[index].style.backgroundColor;
+        });
+    }
+        
+    for (let index = 0; index < pixels.length; index += 1) {
+        pixels[index].addEventListener('click', function () {
+            pixels[index].style.backgroundColor = selectedColor;
         });
     }
 }
 
-//Função que pinta o quadro de pixels
+//Função que pinta o quadro de pixels inicialmente de preto
 function paintPixels() {
     const pixels = document.querySelectorAll('.pixel');
     
@@ -158,4 +173,5 @@ window.onload = function () {
     getLocalStorage();
     clickPalette();
     paintPixels();
+    getColorPalette();
 }
