@@ -119,13 +119,16 @@ function addSelectClass() {
       } else {
         divsColor[index].classList.add('selected');
       }
-      console.log(divsColor[index].classList)
     }
 }
 
 //Função que cria evento de captura da cor da paleta ao clicar
 function clickPalette() {
-    addEventListener('click', addSelectClass);
+    const divsColor = document.querySelectorAll('.color');
+    
+    for(let index = 0; index < divsColor.length; index += 1) {
+        divsColor[index].addEventListener('click', addSelectClass);
+    }
 }
 
 window.onload = function () {
