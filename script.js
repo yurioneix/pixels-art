@@ -121,12 +121,27 @@ function addSelectClass(event) {
     }
 }
 
-//Função que cria evento de captura da cor da paleta ao clicar
+//Função que cria evento que adiciona classe selected ao clicar na paleta
 function clickPalette() {
     const divsColor = document.querySelectorAll('.color');
     
     for(let index = 0; index < divsColor.length; index += 1) {
         divsColor[index].addEventListener('click', addSelectClass);
+        divsColor[index].addEventListener('click', function getColorPalette () {
+            let selectedColor = divsColor[index].style.backgroundColor;
+            console.log(selectedColor);
+        });
+    }
+}
+
+//Função que pinta o quadro de pixels
+function paintPixels() {
+    const pixels = document.querySelectorAll('.pixel');
+    
+    for(let index = 0; index < pixels.length; index += 1) {
+        pixels[index].addEventListener('click', function () {
+            pixels[index].style.backgroundColor = 'rgb(0, 0, 0)';
+        })
     }
 }
 
@@ -142,4 +157,5 @@ window.onload = function () {
     create25Pixels();
     getLocalStorage();
     clickPalette();
+    paintPixels();
 }
