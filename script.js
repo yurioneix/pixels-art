@@ -110,15 +110,14 @@ function getLocalStorage () {
 }
 
 //Função que adiciona classe select a paleta quando é clicada
-function addSelectClass() {
+function addSelectClass(event) {
     const divsColor = document.querySelectorAll('.color');
     
     for (let index = 0; index < divsColor.length; index += 1) {
       if (divsColor[index].classList.contains('selected')) {
         divsColor[index].classList.remove('selected');
-      } else {
-        divsColor[index].classList.add('selected');
-      }
+        event.target.classList.add('selected');
+      } 
     }
 }
 
