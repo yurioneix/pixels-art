@@ -21,13 +21,14 @@ div.color {
 
 #button-random-color {
     position: sticky;
-    left: 45%;
+    left: 48%;
     margin: 10px;
 }
 
 #pixel-board {
     max-width: 19%;
     margin: auto;
+    padding: 8px;
 }
 
 .pixel {
@@ -39,5 +40,5 @@ div.color {
 
 #clear-board {
     position: relative;
-    bottom: 281px;
+    left: 416px;
 }

@@ -162,11 +162,23 @@ function paintPixels() {
 
 //Função que cria botão de limpar quadros
 function createClearButton() {
-    const pixels = document.getElementById('pixel-board');
+    const body = document.getElementsByTagName('body')[0];
     let createButton = document.createElement('button');
     createButton.id = 'clear-board';
     createButton.innerText = 'Limpar';
-    pixels.appendChild(createButton);
+    body.appendChild(createButton);
+}
+
+//Função que cria evento pro botão de limpar
+function clearButtonEvent() {
+    const clearButton = document.getElementById('clear-board');
+    const pixels = document.getElementsByClassName('pixel');
+
+    clearButton.addEventListener('click', function() {
+        for(let index = 0; index < pixels.length; index += 1) {
+            pixels[index].style.backgroundColor = 'white';
+        }
+    })
 }
 
 window.onload = function () {
@@ -176,6 +188,7 @@ window.onload = function () {
     createRandomRGB();
     createDivsColored();
     createButton();
+    createClearButton();
     createButtonRandomColor();
     createFrame();
     create25Pixels();
@@ -183,5 +196,5 @@ window.onload = function () {
     clickPalette();
     paintPixels();
     getColorPalette();
-    createClearButton();
+    clearButtonEvent();
 }
