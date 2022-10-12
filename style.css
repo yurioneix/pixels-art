@@ -36,3 +36,8 @@ div.color {
     height: 40px;
     border: 1px solid black;
 }
+
+#clear-board {
+    position: relative;
+    bottom: 281px;
+}

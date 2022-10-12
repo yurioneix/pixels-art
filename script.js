@@ -160,6 +160,15 @@ function paintPixels() {
     }
 }
 
+//Função que cria botão de limpar quadros
+function createClearButton() {
+    const pixels = document.getElementById('pixel-board');
+    let createButton = document.createElement('button');
+    createButton.id = 'clear-board';
+    createButton.innerText = 'Limpar';
+    pixels.appendChild(createButton);
+}
+
 window.onload = function () {
     createH1();
     createSectionColorPalette();
@@ -174,4 +183,5 @@ window.onload = function () {
     clickPalette();
     paintPixels();
     getColorPalette();
+    createClearButton();
 }
