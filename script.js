@@ -183,26 +183,25 @@ function clearButtonEvent() {
 
 //Função que armazena os pixels pintados no local Storage
 function setPixelsLocalStorage() {
-    const pixels = document.querySelectorAll('.pixel');
-    let savedPixels = '';
+    const pixelBoard = document.querySelectorAll('#pixel-board')[0];
+    let savedPixels;
 
-    for(let index = 0; index < pixels.length; index += 1) {
-        pixels[index].addEventListener('click', function() {
-            savedPixels += pixels[index].style.backgroundColor;
-            localStorage.setItem('pixelBoard', JSON.stringify(savedPixels));
-        })
-    }
+    pixelBoard.addEventListener('click', function(){
+        savedPixels = pixelBoard.innerHTML
+        localStorage.setItem('pixelBoard', JSON.stringify(savedPixels));
+    })
 }
 
-//Função que recupera os pixels pintados no local Storage
+// Função que recupera os pixels pintados no local Storage
 function getPixelsLocalStorage() {
-    const pixels = document.querySelectorAll('.pixel');
+    const pixelBoard = document.querySelectorAll('#pixel-board')[0];
     const localStoragePixels = JSON.parse(localStorage.getItem('pixelBoard'));
-    localStoragePixels.split('')
-    console.log(typeof(localStoragePixels));
-
-    for(let index = 0; index < pixels.length; index += 1) {
-        pixels[index].style.backgroundColor = localStoragePixels;
+    
+    
+    if (!localStoragePixels) {
+        return;
+    } else {
+        pixelBoard.innerHTML = localStoragePixels;
     }
 }
 
