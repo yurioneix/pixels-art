@@ -181,6 +181,31 @@ function clearButtonEvent() {
     })
 }
 
+//Função que armazena os pixels pintados no local Storage
+function setPixelsLocalStorage() {
+    const pixels = document.querySelectorAll('.pixel');
+    let savedPixels = '';
+
+    for(let index = 0; index < pixels.length; index += 1) {
+        pixels[index].addEventListener('click', function() {
+            savedPixels += pixels[index].style.backgroundColor;
+            localStorage.setItem('pixelBoard', JSON.stringify(savedPixels));
+        })
+    }
+}
+
+//Função que recupera os pixels pintados no local Storage
+function getPixelsLocalStorage() {
+    const pixels = document.querySelectorAll('.pixel');
+    const localStoragePixels = JSON.parse(localStorage.getItem('pixelBoard'));
+    localStoragePixels.split('')
+    console.log(typeof(localStoragePixels));
+
+    for(let index = 0; index < pixels.length; index += 1) {
+        pixels[index].style.backgroundColor = localStoragePixels;
+    }
+}
+
 window.onload = function () {
     createH1();
     createSectionColorPalette();
@@ -197,4 +222,6 @@ window.onload = function () {
     paintPixels();
     getColorPalette();
     clearButtonEvent();
+    setPixelsLocalStorage()
+    getPixelsLocalStorage();
 }
