@@ -8,6 +8,7 @@
 <p>
   Basta clonar o repositório na sua máquina e executar o arquivo index.html com a extensão Live Server do VSCode.
 </p>
+<hr>
 <p>Arquivos modificados por mim:</p>
 <ul>
   <li>script.js</li>
